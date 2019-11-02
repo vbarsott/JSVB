@@ -1,0 +1,98 @@
+/*
+Theme Name: JSVB
+File Name: main.css 
+Theme URI: https://js.vanessabarsotti.com
+Author: Vanessa Barsotti
+Date: 31 October 2019
+Version: 0.0.1
+Description: Website for JavaScript practice and Examples
+*/
+
+/*
+Palette Colors:
+#03a8bf (dark green)
+#6dcddb (lighter green)
+#ffaa00 (dark orange)
+#ffe5b1 (light orange)
+#fff8f7 (off-white)
+#1e1e1e (dark)
+*/
+
+/*
+Fonts:
+font-family: 'Handlee', cursive;
+font-family: 'Roboto', sans-serif;
+*/
+
+/* GENERAL ADJUSTMENTS */
+body {
+  font-family: "Roboto", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Handlee", cursive;
+  margin: 0;
+}
+
+/* HEADER ADJUSTMENTS */
+header {
+  padding: 2rem;
+  background-color: #03a8bf;
+}
+.navbar-brand {
+  font-size: 2rem;
+}
+.navbar {
+  padding: 0;
+}
+.navbar-dark .navbar-nav .active > .nav-link {
+  color: #ffaa00;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff8f7;
+}
+
+/* MAIN ADJUSTMENTS */
+main {
+  padding: 3rem 0 0 0;
+}
+.card {
+  padding: 1rem;
+}
+.box-card {
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
+}
+.box-card:nth-last-child(4n + 1) {
+  padding-right: 0rem;
+}
+.card img {
+  width: 20%;
+  margin: auto;
+}
+.card-title {
+  font-size: 1.5rem;
+}
+.btn-primary {
+  background-color: #ffaa00;
+  border-color: #ffaa00;
+}
+.btn-primary:hover {
+  background-color: #03a8bf;
+  border-color: #03a8bf;
+}
+
+/* FOOTER ADJUSTMENTS */
+footer {
+  padding: 2rem;
+  background-color: #03a8bf;
+}
+footer p {
+  text-align: center;
+  margin-bottom: 0;
+  color: #fff8f7;
+}

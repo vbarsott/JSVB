@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JS Skills</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, inital-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<style type="text/css">
+
+			/*GENERAL FEATURES*/
+			body{
+				margin: 0 auto;
+			}
+			h1, h2, h3, h4, h5, h6{
+				margin: 0;
+				color: #FFF8F7;
+				font-family: 'Handlee', cursive;
+			}
+			h1 {
+				font-size: 30px;
+			}
+			h2 {
+				font-size: 26px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4, h5, h6 {
+				font-size: 20px;
+			}
+			p{
+				margin: 0;
+				font-size: 18px;
+			}
+			ul{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				margin: 0;
+				font-size: 18px;
+			}
+			a{
+				text-decoration: none;
+			}
+
+			/*HEADER FEATURES*/
+			header{
+				background: #827F7E;
+				height: 74px;
+				padding: 30px;
+			}
+			header #logo{
+				float: left;
+				width: 30%;
+			}
+			header #title{
+				float: left;
+				width: 40%;
+				text-align: center;
+				padding-top: 18px;
+			}
+			header #title h2{
+				font-size: 34px;
+			}
+
+			/*NAV MENU*/
+			#nav-menu{
+				float: left;
+				width: 30%;
+				padding-top: 60px;
+			}
+			header ul{
+				float: right;
+				list-style-type: none;
+			}
+			header li{
+				float: left;
+				padding-left: 40px;
+			}
+			header li a{
+				display: block;
+				color: #FFF8F7;
+				text-decoration: none;
+				font-family: 'Handlee', cursive;
+			}
+			header li a:hover{
+				color: #1E1E1E;
+			}
+
+			/*DROPDOWN MENU*/
+			.dropdown{
+				position: relative;
+				display: inline-block;
+			}
+			.dropdown-content{
+				display: none;
+				position: absolute;
+				right: -100px;
+				top: 3px;
+				background: #D9D3CE;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			.dropdown-content li{
+				padding: 0;
+				border-bottom: solid 1px #827F7E;
+			}
+			.dropdown-content a{
+				display: block;
+				color: #827F7E;
+				text-align: center;
+				padding: 5px;
+				min-width: 100px;
+			}
+			li:hover .dropdown .dropdown-content{
+				display: block;
+			}
+			.dropdown-content li:hover{
+				background: #827F7E;
+			}
+			.dropdown-content a:hover{
+				background: #827F7E;
+				color: #FFF8F7;
+			}
+
+			/*SECTION FEATURES*/
+			section{
+				background: #fff;
+				clear: both;
+				text-align:center;
+				padding: 20px 0;
+			}
+			section h2{
+				color: #1E1E1E;
+				padding: 30px;
+				text-align: center;
+			}
+			section img{
+				width: 20%;
+				cursor: pointer;
+			}
+
+			/*FOOTER FEATURES*/
+			footer{
+				background: #827F7E;
+			}
+			footer p{
+				color: #1E1E1E;
+				text-align: center;
+				font-family: 'Handlee', cursive;
+				padding: 10px 0;
+			}
+		</style>
+		<script>
+			// Function to greet users
+			function greetings(){
+				// alert("Hello, I'm Gilfoyle. Click me to see me smile.");
+			}
+			// Function to ask user's name and change img
+			function makeSmile(){
+				var userName = prompt("What's your name?", "name");
+				if (userName) {
+					document.getElementById("gilfoyle").src = "img/gilfoyle-big-smile.png";
+					alert("Nice to meet you " + userName + ".");
+				}
+				else {
+					alert("Don't want to give me your name? Never mind. I'll find out anyway...");
+					document.getElementById("gilfoyle").src = "img/gilfoyle-big-devil.png";
+				}
+				setTimeout("document.getElementById('gilfoyle').src='img/gilfoyle.png';", 3000);
+			}
+		</script>
+	</head>
+	<body onload="greetings();">
+		<div id="wrapper">
+			<header><!-- header section start -->
+				<div id="logo"><!-- div logo start -->
+					<a href="#">
+						<h1>Vanessa Barsotti</h1>
+						<h2>Web Designer and Developer</h2>
+					</a>
+				</div><!-- div logo end -->
+				<div id="title"><!-- div title start -->
+					<h2>JavaScript Skills</h2>
+				</div><!-- div title end -->
+				<div id="nav-menu"><!-- div nav-menu start -->
+					<ul>
+						<li><a href="#">PROJECTS</a>
+							<div class="dropdown">
+								<div class="dropdown-content">
+									<ul>
+										<li><a href="#">Gilfoyle</a></li>
+										<li><a href="#">Donuts</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+							
+						<li><a href="#">CONTATO</a></li>
+					</ul>
+				</div><!-- div nav-menu end -->
+			</header><!-- header section end -->
+
+			<section><!-- main section start -->
+				<h2>Make Gilfoyle smile!</h2>
+				<div>
+					<img id="gilfoyle" src="img/gilfoyle.png" alt="gilfoyle" onclick="makeSmile();" />
+				</div>
+			</section><!-- main section end -->
+
+			<footer><!-- footer section start -->
+				<p>&copy; Designed by Vanessa Barsotti 2018</p>
+			</footer><!-- footer section end -->
+		</div>
+	</body>
+</html>

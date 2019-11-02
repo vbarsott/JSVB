@@ -1,0 +1,251 @@
+/**********************
+*                     *
+*   Vanessa Barsotti  *
+*  JS Skills Project  *
+*                     *
+**********************/
+
+/*PALETTE COLORS
+#03A8BF (dark green)
+#6DCDDB (lighter green)
+#FFAA00 (dark orange)
+#FFE5B1 (light orange)
+#FFF8F7 (off-white)
+#1E1E1E (dark)
+*/
+
+/*GENERAL FEATURES*/
+body{
+	margin: 0 auto;
+}
+h1, h2, h3, h4, h5, h6{
+	margin: 0;
+	color: #FFF8F7;
+	font-family: 'Handlee', cursive;
+}
+h1 {
+	font-size: 30px;
+}
+h2 {
+	font-size: 26px;
+}
+h3 {
+	font-size: 24px;
+}
+h4, h5, h6 {
+	font-size: 20px;
+}
+p{
+	margin: 0;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+}
+ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	margin: 0;
+	font-size: 18px;
+}
+a{
+	text-decoration: none;
+}
+
+/*HEADER FEATURES*/
+header{
+	background: #03A8BF;
+	height: 74px;
+	padding: 30px 50px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+header #logo{
+	float: left;
+	width: 30%;
+}
+header #logo h1,
+header #logo h2{
+	font-weight: 100;
+}
+header #title{
+	float: left;
+	width: 30%;
+	text-align: center;
+	padding-top: 18px;
+}
+header #title h2{
+	font-size: 34px;
+	font-weight: 100;
+}
+
+/*NAV MENU*/
+#nav-menu{
+	float: left;
+	width: 30%;
+	padding-top: 60px;
+}
+header ul{
+	float: right;
+	list-style-type: none;
+}
+header li{
+	float: left;
+	padding-left: 40px;
+}
+header li a{
+	display: block;
+	color: #FFF8F7;
+	text-decoration: none;
+	font-family: 'Handlee', cursive;
+}
+header li a:hover{
+	color: #FFAA00;
+}
+
+/*DROPDOWN MENU*/
+.dropdown{
+	position: relative;
+	display: inline-block;
+}
+.dropdown-content{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 3px;
+	background: #03A8BF;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+.dropdown-content li{
+	padding: 0;
+}
+.dropdown-content a{
+	color: #FFF8F7;
+	text-align: center;
+	padding: 5px;
+	min-width: 130px;
+}
+li:hover .dropdown .dropdown-content{
+	display: block;
+}
+.dropdown-content a:hover{
+	background: #6DCDDB;
+	color: #FFF8F7;
+}
+
+/*SECTION FEATURES*/
+section{
+	background: #fff;
+	clear: both;
+	text-align:center;
+	padding: 30px 0;
+}
+section h2{
+	color: #1E1E1E;
+	padding: 20px;
+	text-align: center;
+}
+section img{
+	width: 50%;
+	cursor: pointer;
+}
+#intro h2{
+	padding: 0;
+	color: #1E1E1E;
+	text-align: center;
+	width: 60%;
+	margin: 0 auto;
+}
+#intro p{
+	width: 60%;
+	margin: 0 auto;
+}
+
+/*PROJECT BOX FEATURES*/
+#projects{
+	width: 80%;
+	max-width: 1080px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 10px;
+}
+.project-item{
+	float: left;
+	/*display: inline-block;*/
+	width: 24%;
+	margin-right: 5%;
+}
+
+.project-box{
+	background: #E39700;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.project-box a{
+	display: block;
+	font-family: 'Handlee', cursive;
+	color: #FFF8F7;
+	font-size: 20px;
+	padding: 10px;
+}
+/*.project-description{
+	margin-bottom: 10px;
+	min-height: 100px;
+}*/
+/*.project-img{
+	margin: 0;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	min-height: 200px;
+}*/
+/*.project-img a{
+	display: block;
+	min-height: 200px;
+	padding: 10px;
+	margin: 0 auto;
+}*/
+/*.project-img img{
+	padding: 10px;
+	margin: 0 auto;
+}*/
+
+/*teste*/
+#teste{
+	width: 80%;
+	max-width: 1080px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 10px;
+
+}
+.teste1{
+	float: left;
+	width: 21.2%;
+	background: #f00;
+	margin-right: 5%;
+}
+.teste1:last-child{
+	margin-right: 0;
+}
+
+/*FOOTER FEATURES*/
+footer{
+	clear: both;
+	background: #03A8BF;
+}
+footer p{
+	color: #FFF8F7;
+	text-align: center;
+	font-family: 'Handlee', cursive;
+	padding: 10px 0;
+}
+
+/*PROJECTS FEATURES*/
+
+/*MAKE GILFOYLE SMILE*/
+img#gilfoyle{
+	width: 25%;
+}

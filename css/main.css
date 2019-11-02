@@ -96,3 +96,27 @@ footer p {
   margin-bottom: 0;
   color: #fff8f7;
 }
+
+/* GILFOYLE SMILE */
+#gilfoyle h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+#gilfoyle h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #ffaa00;
+}
+#gilfoyle .example-title {
+  padding: 0 0 2rem 0;
+}
+#gilfoyle .example-main {
+  text-align: center;
+}
+#gilfoyle .example-main img {
+  width: 20%;
+  cursor: pointer;
+}
+
+/* PENNY BLOSSOM */

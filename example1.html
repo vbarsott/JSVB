@@ -12,7 +12,7 @@ Description: Website for JavaScript practice and Examples
 
 <html lang="en">
   <head>
-    <title>JSVB Project</title>
+    <title>JSVB Gilfoyle Smile</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -26,6 +26,7 @@ Description: Website for JavaScript practice and Examples
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
     <script>
+      // INCLUDE HTML FUNCTION
       function includeHTML() {
         var z, i, elmnt, file, xhttp;
         // Loop through a collection of all HTML elements:
@@ -57,18 +58,64 @@ Description: Website for JavaScript practice and Examples
           }
         }
       }
+
+      // EXAMPLE FUNCTIONS
+      var userName;
+      function greetUser() {
+        alert("Hello! I am Gilfoyle. Pet me!");
+      }
+      function touchGilfoyle() {
+        if (userName) {
+          alert("I like the attention, " + userName + ". Thank you!");
+          document.getElementById("gilfoyle-doll").src =
+            "img/gilfoyle-big-smile.png";
+        } else {
+          userName = prompt("What is your name?");
+          if (userName) {
+            alert("It is good to meet you, " + userName + "!");
+            document.getElementById("gilfoyle-doll").src =
+              "img/gilfoyle-big-smile.png";
+          } else {
+            alert("I am a hacker. I'll discover anyway... Hahahaha!");
+            document.getElementById("gilfoyle-doll").src =
+              "img/gilfoyle-big-devil.png";
+          }
+        }
+        setTimeout(
+          "document.getElementById('gilfoyle-doll').src = 'img/gilfoyle.png';",
+          4 * 1000
+        );
+      }
     </script>
   </head>
-  <body>
+  <body onload="greetUser();">
     <div class="container">
       <header>
         <div id="header" w3-include-html="header.html"></div>
+        <!-- /#header -->
       </header>
       <main>
-        <h1>Example 1</h1>
+        <div id="gilfoyle">
+          <div class="example-title">
+            <h1>JavaScript Practice</h1>
+            <h2>Gilfoyle Smile</h2>
+          </div>
+          <!-- /.example-title -->
+          <div class="example-main">
+            <img
+              id="gilfoyle-doll"
+              src="img/gilfoyle.png"
+              alt="Gilfoyle"
+              onclick="touchGilfoyle();"
+            />
+          </div>
+          <!-- /.example-main -->
+        </div>
+        <!-- /#gilfoyle -->
       </main>
       <footer>
         <div id="footer" w3-include-html="footer.html"></div>
+        <!-- /#footer -->
       </footer>
     </div>
     <!-- .container -->

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<!--
+Theme Name: JSVB
+File Name: example2.html
+Theme URI: https://js.vanessabarsotti.com
+Author: Vanessa Barsotti
+Date: 31 October 2019
+Version: 0.0.1
+Description: Website for JavaScript practice and Examples
+-->
+
+<html lang="en">
+  <head>
+    <title>JSVB Penny Blossom</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- link for font-family -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Handlee|Roboto"
+      rel="stylesheet"
+    />
+    <!-- link for styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+      // INCLUDE HTML FUNCTION
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        // Loop through a collection of all HTML elements:
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          // Search for elements with a certain attribute:
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            // Make an HTTP request using the attribute value as the file name:
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                  elmnt.innerHTML = "Page not found.";
+                }
+                // Remove the attribute, and call this function once more:
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            // Exit the function:
+            return;
+          }
+        }
+      }
+
+      // EXAMPLE FUNCTIONS
+      function placeOrder(form) {
+        if (document.getElementById("name").value == "") {
+          alert("Please, provide a valid name.");
+        } else if (
+          document.getElementById("pickupmin").value == "" ||
+          isNaN(document.getElementById("pickupmin").value)
+        ) {
+          alert(
+            "Please, provide the number of minutes to pickup your Penny Blossoms."
+          );
+        } else {
+          form.submit();
+        }
+      }
+      function updateOrder() {
+        const TAXRATE = 0.0925;
+        const PBPRICE = 0.5;
+        var numYellowBlossoms = parsePB(
+          document.getElementById("pbyellow").value
+        );
+        var numPinkBlossoms = parsePB(document.getElementById("pbpink").value);
+        if (isNaN(numYellowBlossoms)) {
+          numYellowBlossoms = 0;
+        }
+        if (isNaN(numPinkBlossoms)) {
+          numPinkBlossoms = 0;
+        }
+        var subTotal = (numYellowBlossoms + numPinkBlossoms) * PBPRICE;
+        const tax = TAXRATE * subTotal;
+        var total = subTotal + tax;
+        document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+        document.getElementById("tax").value = "$" + tax.toFixed(2);
+        document.getElementById("total").value = "$" + total.toFixed(2);
+      }
+
+      function parsePB(pbString) {
+        numPB = parseInt(pbString);
+        if (pbString.indexOf("dozen") != -1) numPB *= 12;
+        return numPB;
+      }
+
+      // function parseDonuts(donutString) {
+      //   numDonuts = parseInt(donutString);
+      //   if (donutString.indexOf("dozen") != -1) numDonuts *= 12;
+      //   return numDonuts;
+      // }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div id="header" w3-include-html="header.html"></div>
+        <!-- /#header -->
+      </header>
+      <main>
+        <div id="penny-blossom">
+          <div class="example-title">
+            <h1>JavaScript Practice</h1>
+            <h2>Penny Blossom</h2>
+          </div>
+          <!-- /.example-title -->
+
+          <div class="example-main">
+            <h3>All items 50 cents each!</h3>
+            <div id="pb-left">
+              <img
+                src="img/penny_blossom_yellow-small.png"
+                alt="Yellow Penny Blossom"
+              />
+            </div>
+            <form action="/" method="POST" name="orderform">
+              <div class="field">
+                Name:
+                <input type="text" id="name" name="name" value="" />
+              </div>
+              <div class="field">
+                Minutes to pickup:
+                <input type="text" id="pickupmin" name="pickupmin" value="" />
+              </div>
+              <div class="field">
+                # of Yellow Blossoms:
+                <input
+                  type="text"
+                  id="pbyellow"
+                  name="pbyellow"
+                  value=""
+                  onchange="updateOrder();"
+                />
+              </div>
+              <div class="field">
+                # of Pink Blossoms:
+                <input
+                  type="text"
+                  id="pbpink"
+                  name="pbpink"
+                  value=""
+                  onchange="updateOrder();"
+                />
+              </div>
+              <div class="field">
+                Subtotal:
+                <input
+                  type="text"
+                  id="subtotal"
+                  name="subtotal"
+                  value=""
+                  readonly="readonly"
+                />
+              </div>
+              <div class="field">
+                Tax:
+                <input
+                  type="text"
+                  id="tax"
+                  name="tax"
+                  value=""
+                  readonly="readonly"
+                />
+              </div>
+              <div class="field">
+                Total:
+                <input
+                  type="text"
+                  id="total"
+                  name="total"
+                  value=""
+                  readonly="readonly"
+                />
+              </div>
+              <div class="field">
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="placeOrder(this.form);"
+                  >Place Order</a
+                >
+              </div>
+            </form>
+          </div>
+          <!-- /.example-main -->
+        </div>
+        <!-- /#penny-blossom -->
+      </main>
+      <footer>
+        <div id="footer" w3-include-html="footer.html"></div>
+        <!-- /#footer -->
+      </footer>
+    </div>
+    <!-- .container -->
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>

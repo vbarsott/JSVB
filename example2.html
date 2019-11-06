@@ -94,18 +94,11 @@ Description: Website for JavaScript practice and Examples
         document.getElementById("tax").value = "$" + tax.toFixed(2);
         document.getElementById("total").value = "$" + total.toFixed(2);
       }
-
       function parsePB(pbString) {
         numPB = parseInt(pbString);
         if (pbString.indexOf("dozen") != -1) numPB *= 12;
         return numPB;
       }
-
-      // function parseDonuts(donutString) {
-      //   numDonuts = parseInt(donutString);
-      //   if (donutString.indexOf("dozen") != -1) numDonuts *= 12;
-      //   return numDonuts;
-      // }
     </script>
   </head>
   <body>
@@ -125,10 +118,7 @@ Description: Website for JavaScript practice and Examples
           <div class="example-main">
             <h3>All items 50 cents each!</h3>
             <div id="pb-left">
-              <img
-                src="img/penny_blossom_yellow-small.png"
-                alt="Yellow Penny Blossom"
-              />
+              <img src="img/pb-pink-yellow.png" alt="Yellow Penny Blossom" />
             </div>
             <form action="/" method="POST" name="orderform">
               <div class="field">

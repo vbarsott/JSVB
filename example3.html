@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<!--
+Theme Name: JSVB
+File Name: example3.html
+Theme URI: https://js.vanessabarsotti.com
+Author: Vanessa Barsotti
+Date: 31 October 2019
+Version: 0.0.1
+Description: Website for JavaScript practice and Examples
+-->
+
+<html lang="en">
+  <head>
+    <title>JSVB Clickable Robot</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- link for font-family -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Handlee|Roboto"
+      rel="stylesheet"
+    />
+    <!-- link for styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        // Loop through a collection of all HTML elements:
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          // Search for elements with a certain attribute:
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            // Make an HTTP request using the attribute value as the file name:
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                  elmnt.innerHTML = "Page not found.";
+                }
+                // Remove the attribute, and call this function once more:
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            // Exit the function:
+            return;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div id="header" w3-include-html="header.html"></div>
+      </header>
+      <main>
+        <div id="clickable-robot">
+          <div class="example-title">
+            <h1>JavaScript Practice</h1>
+            <h2>The Clickable Robot</h2>
+          </div>
+          <!-- /.example-title -->
+          <div class="example-main">
+            <div id="robot">
+              <div id="robot-head">
+                <div class="ear" id="left-ear"></div>
+                <div class="antenna" id="left-antenna"></div>
+                <div class="antenna" id="right-antenna"></div>
+                <div class="ear" id="right-ear"></div>
+                <div class="eye" id="left-eye"></div>
+                <div class="eye" id="right-eye"></div>
+                <div id="nose"></div>
+                <div id="mouth"></div>
+              </div>
+              <div id="robot-body">
+                <p>Click My Eyes! Click My Arms! Click my belly to stop.</p>
+              </div>
+              <div class="arm" id="left-arm"></div>
+              <div class="arm" id="right-arm"></div>
+              <div class="feet" id="left-foot"></div>
+              <div class="feet" id="right-foot"></div>
+            </div>
+            <!-- /#robot" -->
+          </div>
+          <!-- /.example-main -->
+        </div>
+        <!-- /#clickable-robot" -->
+      </main>
+      <footer>
+        <div id="footer" w3-include-html="footer.html"></div>
+      </footer>
+    </div>
+    <!-- .container -->
+    <script>
+      includeHTML();
+
+      // Script for The Clickable Robot
+      var timerArray = [];
+
+      var rightEye = document.getElementById("right-eye");
+      rightEye.addEventListener("click", moveUpDown);
+      var leftEye = document.getElementById("left-eye");
+      leftEye.addEventListener("click", moveUpDown);
+      // var leftArm = document.getElementById("left-arm");
+      // leftArm.addEventListener("click", moveUpDown);
+      function moveUpDown(e) {
+        var robotPart = e.target;
+        var top = 10;
+        var timer = setInterval(frame, 10);
+        timerArray.push(timer); // stores timer in the array
+        var direction = 1;
+        function frame() {
+          robotPart.style.top = top + "%";
+          if (top === 10) {
+            direction = 1;
+          }
+          if (top === 25) {
+            direction = -1;
+          }
+          top = top + direction;
+        }
+      }
+      var rightFoot = document.getElementById("right-foot");
+      rightFoot.addEventListener("click", moveRightFoot);
+      function moveRightFoot(e) {
+        var robotRightFoot = e.target;
+        var left = 50;
+        var timer = setInterval(frame, 20); // create the timer
+        timerArray.push(timer); // push it into an array
+        var direction = 1;
+        function frame() {
+          robotRightFoot.style.left = left + "%";
+          if (left === 50) {
+            direction = 1;
+          }
+          if (left === 60) {
+            direction = -1;
+          }
+          left += direction;
+        }
+      }
+      var leftFoot = document.getElementById("left-foot");
+      leftFoot.addEventListener("click", moveLeftFoot);
+      function moveLeftFoot(e) {
+        var robotLeftFoot = e.target;
+        var left = 40;
+        var timer = setInterval(frame, 20); // create the timer
+        timerArray.push(timer); // push it into an array
+        var direction = -1;
+        function frame() {
+          robotLeftFoot.style.left = left + "%";
+          if (left === 40) {
+            direction = -1;
+          }
+          if (left === 30) {
+            direction = 1;
+          }
+          left += direction;
+        }
+      }
+      var belly = document.getElementById("robot-body");
+      belly.addEventListener("click", stopRobot);
+      function stopRobot() {
+        for (i = 0; i < timerArray.length; i++) {
+          var timer = timerArray[i];
+          clearInterval(timer);
+        }
+        timerArray = [];
+      }
+    </script>
+  </body>
+</html>

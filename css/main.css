@@ -62,6 +62,7 @@ main {
 }
 .card {
   padding: 1rem;
+  min-height: 300px;
 }
 .box-card {
   padding-right: 1.5rem;
@@ -127,15 +128,20 @@ footer p {
   text-align: center;
   margin-bottom: 1rem;
 }
-.example-main {
-  width: 500px;
+#penny-blossom .example-main {
+  width: 600px;
   margin: auto;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid #03a8bf;
 }
 #pb-left {
   float: left;
   width: 130px;
   text-align: center;
+}
+#pb-left img {
+  width: 100%;
 }
 .field {
   margin-bottom: 5px;
@@ -143,4 +149,138 @@ footer p {
 }
 footer {
   clear: both;
+}
+
+/* THE DANCING ROBOT */
+#clickable-robot .example-main {
+  width: 40%;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid #03a8bf;
+  position: relative;
+}
+#clickable-robot p {
+  font-size: 1.5rem;
+  color: #e12523;
+}
+#robot-head {
+  width: 30%;
+  height: 30%;
+  border-radius: 15%;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  position: absolute;
+  left: 33%;
+  top: 5%;
+  background-color: #bfe1ed;
+  transform: rotateZ(15deg);
+}
+.antenna {
+  background-color: #000;
+  width: 30%;
+  height: 5%;
+}
+.ear {
+  background-color: #e12523;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+}
+#left-ear {
+  position: absolute;
+  left: -39%;
+  top: 30%;
+}
+#left-antenna {
+  position: absolute;
+  left: -30%;
+  top: 32%;
+}
+#right-ear {
+  position: absolute;
+  left: 125%;
+  top: 30%;
+}
+#right-antenna {
+  position: absolute;
+  left: 100%;
+  top: 32%;
+}
+.eye {
+  background-color: #e12523;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+}
+#left-eye {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+#right-eye {
+  position: absolute;
+  left: 20%;
+  top: 25%;
+}
+#mouth {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  left: 35%;
+  top: 60%;
+  background-color: #000;
+  border: 5px groove #bfe1ed;
+  border-radius: 10%;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+}
+#robot-body {
+  width: 45%;
+  height: 50%;
+  border-radius: 15%;
+  position: absolute;
+  left: 25%;
+  top: 35%;
+  background-image: linear-gradient(#bfe1ed, #000);
+  text-align: center;
+  padding-top: 30px;
+}
+.arm {
+  background-color: #009ad8;
+  position: absolute;
+  top: 40%;
+  width: 5%;
+  height: 40%;
+  border-radius: 30%;
+}
+#left-arm {
+  position: absolute;
+  left: 66%;
+  top: 30%;
+  width: 25%;
+  height: 7%;
+  transform: rotateZ(135deg);
+}
+#right-arm {
+  position: absolute;
+  left: 20%;
+}
+.feet {
+  background-color: #009ad8;
+  width: 5%;
+  height: 10%;
+  border-radius: 50%;
+  padding-bottom: 1rem;
+}
+#left-foot {
+  position: absolute;
+  top: 85%;
+  left: 40%;
+}
+#right-foot {
+  position: absolute;
+  top: 85%;
+  left: 50%;
 }

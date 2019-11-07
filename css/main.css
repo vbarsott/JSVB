@@ -151,7 +151,7 @@ footer {
   clear: both;
 }
 
-/* THE DANCING ROBOT */
+/* THE CLICKABLE ROBOT */
 #clickable-robot .example-main {
   width: 40%;
   height: 400px;
@@ -162,7 +162,7 @@ footer {
   position: relative;
 }
 #clickable-robot p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #e12523;
 }
 #robot-head {
@@ -283,4 +283,78 @@ footer {
   position: absolute;
   top: 85%;
   left: 50%;
+}
+
+/* JAVASCRIPT CALCULATOR */
+#calculator .example-main {
+  width: 35%;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+#calculator-box {
+  border: 1px solid #009ad8;
+  border-radius: 4px;
+}
+#calculator-box h2 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px dashed #333;
+  border-bottom: 1px dashed #333;
+}
+#calculator-box h3 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 0 0.5rem 0;
+}
+#calculator input[type="text"] {
+  width: 200px;
+  height: 30px;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 1rem 0;
+}
+#calculator input[type="submit"] {
+  font-size: 1.2rem;
+}
+#calculator .input-area {
+  background-color: #bfe1ed;
+  padding: 1rem 1rem 0 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.operator-choices {
+  border-bottom: 1px solid #000;
+  padding-bottom: 1rem;
+}
+.operator-choices:nth-last-child(3n + 1) {
+  border-bottom: none;
+}
+.operator-signs {
+  padding-bottom: 1rem;
+}
+#calculator input[type="radio"] {
+  vertical-align: text-top;
+  margin: 0 0.2rem 0 0.6rem;
+}
+#calculator .btn {
+  margin: 0 0 1rem 0;
+}
+#calculator .output-area {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 1.5 rem;
+  border-radius: 4px;
+}
+#calculator-box .output-area h2 {
+  border-top: 1px dashed#fff;
+  border-bottom: 1px dashed#fff;
+}
+#calculator-box .output-area h3 {
+  text-align: left;
 }

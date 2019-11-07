@@ -12,7 +12,7 @@ Description: Website for JavaScript practice and Examples
 
 <html lang="en">
   <head>
-    <title>JSVB Project</title>
+    <title>JSVB Calculator</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -65,18 +65,92 @@ Description: Website for JavaScript practice and Examples
         <div id="header" w3-include-html="header.html"></div>
       </header>
       <main>
-        <div id="id-name">
+        <div id="calculator">
+
           <div class="example-title">
             <h1>JavaScript Practice</h1>
-            <h2>Example Name</h2>
+            <h2>JavaScript Calculator</h2>
           </div>
           <!-- /.example-title -->
+
           <div class="example-main">
-            <h1>Example</h1>
+            <div id="calculator-box">
+
+              <div class="input-area">
+                <h2>Step 1: Enter the 1st Operand</h2>
+                <input type="text" id="operand1" value="1" />
+                <select id="operand1-type">
+                  <option value="number">number</option>
+                  <option value="string">string</option>
+                </select>
+              </div>
+              <!-- /.input-area -->
+
+              <div class="input-area">
+                <h2>Step 2: Choose an Operator</h2>
+
+                <div class="operator-choices">
+                  <h3>Arithmetic Operators</h3>
+                  <input type="radio" name="operator" value="+" checked>+&nbsp;
+                  <input type="radio" name="operator" value="-">-&nbsp;
+                  <input type="radio" name="operator" value="*">*&nbsp;
+                  <input type="radio" name="operator" value="/">/&nbsp;
+                  <input type="radio" name="operator" value="%">%&nbsp;
+                </div>
+
+                <div class="operator-choices">
+                  <h3>String Operator</h3>
+                  <input type="radio" name="operator" value="concat">+ (concatenation)&nbsp;
+                </div>
+
+                <div class="operator-choices">
+                  <h3>Comparison Operators</h3>
+                  <div class="operator-signs">
+                    <input type="radio" name="operator" value="==">==&nbsp;
+                    <input type="radio" name="operator" value="===">===&nbsp;
+                    <input type="radio" name="operator" value="!=">!=&nbsp;
+                    <input type="radio" name="operator" value="!==">!==&nbsp;
+                  </div>
+                  <div>
+                    <input type="radio" name="operator" value=">">&gt;&nbsp;
+                    <input type="radio" name="operator" value=">=">&gt;=&nbsp;
+                    <input type="radio" name="operator" value="<">&lt;&nbsp;
+                    <input type="radio" name="operator" value="<=">&lt;=&nbsp;
+                  </div>
+                </div>
+              </div>
+              <!-- /.input-area -->
+
+              <div class="input-area">
+                <h2>Step 3: Enter the 2nd Operand</h2>
+                <input type="text" id="operand2" value="1">
+                <select id="operand2-type">
+                  <option value="number">number</option>
+                  <option value="string">string</option>
+                </select>
+              </div>
+              <!-- /.input-area -->
+
+              <div class="input-area">
+                <input class="btn btn-primary" type="submit" id="submit" value="Operate!">
+              </div>
+              <!-- /.input-area -->
+
+              <div class="output-area">
+                <h2>Output</h2>
+                <h3>Operation</h2>
+                <span id="final-operation">???</span>
+                <h3>Return Value:</h2>
+                <span id="result">???</span>
+              </div>
+              <!-- /.output-area -->
+
+            </div>
+            <!-- /#calculator-box -->
           </div>
           <!-- /.example-main -->
         </div>
-        <!-- /#gilfoyle -->
+        <!-- /#calculator -->
       </main>
       <footer>
         <div id="footer" w3-include-html="footer.html"></div>
@@ -85,6 +159,103 @@ Description: Website for JavaScript practice and Examples
     <!-- .container -->
     <script>
       includeHTML();
+
+      // 1 - When clicking the button, calculate the result
+      document.getElementById("submit").addEventListener("click", calculateResult);
+      // 2 - Create a function that calculates the result
+      function calculateResult(){
+        // initial variables
+        var myOperator;
+        var returnValue;
+        // variables to get the operands
+        var operand1 = document.getElementById("operand1").value;
+        var operand2 = document.getElementById("operand2").value;
+        // variables to get the operand's types
+        var operand1type = document.getElementById("operand1-type").value;
+        var operand2type = document.getElementById("operand2-type").value;
+        // variable to get the operator
+        var radios = document.getElementsByName("operator");
+        // convert the operands
+        switch (operand1type) {
+          case "string":
+            operand1 = String(operand1);
+            break;
+          case "number":
+            operand1 = Number(operand1);
+            break;
+        }
+        switch (operand2type) {
+          case "string":
+            operand2 = String(operand2);
+            break;
+          case "number":
+            operand2 = Number(operand2);
+            break;
+        }
+        //loop through each possible operand value and find the checked one
+        for(var i=0, length = radios.length; i<length; i++){
+          if(radios[i].checked){
+            myOperator = radios[i].value;
+            //do a different operation depending on which operator was selected
+            switch (radios[i].value) {
+              case "+":
+                returnValue = operand1 + operand2;
+                break;
+              case "-":
+                returnValue = operand1 - operand2;
+                break;
+              case "*":
+                returnValue = operand1 * operand2;
+                break;
+              case "/":
+                returnValue = operand1 / operand2;
+                break;
+              case "%":
+                returnValue = operand1 % operand2;
+                break;
+              case "concat":
+                returnValue = operand1 + operand2;
+                myOperator = "+";
+                break;
+              case "==":
+                returnValue = operand1 == operand2;
+                break;
+              case "===":
+                returnValue = operand1 === operand2;
+                break;
+              case "!=":
+                returnValue = operand1 != operand2;
+                break;
+              case "!==":
+                returnValue = operand1 !== operand2;
+                break;
+              case ">":
+                returnValue = operand1 > operand2;
+                break;
+              case ">=":
+                returnValue = operand1 >= operand2;
+                break;
+              case "<":
+                returnValue = operand1 < operand2;
+                break;
+              case "<=":
+                returnValue = operand1 <= operand2;
+                break;
+            }
+            break;
+          }
+        }
+        // display the operation
+        if(typeof(operand1) === "string"){
+          operand1 = "''" + operand1 + "''";
+        }
+        if(typeof(operand2) === "string"){
+          operand2 = "''" + operand2 + "''";
+        }
+        document.getElementById("final-operation").innerHTML = operand1 + myOperator + operand2;
+        // display the result
+        document.getElementById("result").innerHTML = returnValue;
+      }
     </script>
   </body>
 </html>

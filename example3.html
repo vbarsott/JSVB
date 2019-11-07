@@ -84,7 +84,9 @@ Description: Website for JavaScript practice and Examples
                 <div id="mouth"></div>
               </div>
               <div id="robot-body">
-                <p>Click My Eyes! Click My Arms! Click my belly to stop.</p>
+                <p>Click My Eyes!</p>
+                <p>Click My Feet!</p>
+                <p>Click my belly to stop.</p>
               </div>
               <div class="arm" id="left-arm"></div>
               <div class="arm" id="right-arm"></div>
@@ -112,8 +114,6 @@ Description: Website for JavaScript practice and Examples
       rightEye.addEventListener("click", moveUpDown);
       var leftEye = document.getElementById("left-eye");
       leftEye.addEventListener("click", moveUpDown);
-      // var leftArm = document.getElementById("left-arm");
-      // leftArm.addEventListener("click", moveUpDown);
       function moveUpDown(e) {
         var robotPart = e.target;
         var top = 10;

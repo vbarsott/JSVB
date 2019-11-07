@@ -2,7 +2,7 @@
 
 <!--
 Theme Name: JSVB
-File Name: example4.html
+File Name: example.html
 Theme URI: https://js.vanessabarsotti.com
 Author: Vanessa Barsotti
 Date: 31 October 2019
@@ -12,7 +12,7 @@ Description: Website for JavaScript practice and Examples
 
 <html lang="en">
   <head>
-    <title>JSVB Calculator</title>
+    <title>JSVB Project</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -194,6 +194,7 @@ Description: Website for JavaScript practice and Examples
           if (radios[i].checked) {
             // variable to store the radio button value
             myOperator = radios[i].value;
+
             // execute operation
             switch (myOperator) {
               case "+":
@@ -213,7 +214,6 @@ Description: Website for JavaScript practice and Examples
                 break;
               case "concatenation":
                 returnValue = operand1 + operand2;
-                // set the operator to "+"
                 myOperator = "+";
                 break;
               case "==":
